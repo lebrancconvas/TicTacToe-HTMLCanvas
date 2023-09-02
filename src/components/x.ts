@@ -1,5 +1,3 @@
-import { Cell } from "./cell";
-
 export class X {
   x: number;
   y: number;
