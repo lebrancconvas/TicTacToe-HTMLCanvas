@@ -46,12 +46,12 @@ function mark(cell: Cell) {
   if(!cell.isMarked) {
     if(isTurnX) {
       const x = new X(cell.centerPoint.x - 25, cell.centerPoint.y - 25);
-      x.draw(ctx, cell);
+      x.draw(ctx);
       isTurnX = false;
       cell.isMarked = true;
     } else {
       const o = new O(cell.centerPoint.x, cell.centerPoint.y);
-      o.draw(ctx, cell);
+      o.draw(ctx);
       isTurnX = true;
       cell.isMarked= true;
     }

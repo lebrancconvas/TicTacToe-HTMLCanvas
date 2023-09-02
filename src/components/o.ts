@@ -11,13 +11,11 @@ export class O {
     this.radius = 30;
   }
 
-  draw(c: CanvasRenderingContext2D, cell: Cell) {
-    if(!cell.isTick) {
-      c.beginPath();
-      c.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-      c.strokeStyle = 'White';
-      c.stroke();
-      c.closePath();
-    }
+  draw(c: CanvasRenderingContext2D) {
+    c.beginPath();
+    c.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+    c.strokeStyle = 'White';
+    c.stroke();
+    c.closePath();
   }
 };
