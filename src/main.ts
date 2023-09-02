@@ -93,6 +93,14 @@ function checkWinner() {
       ctx.fillText('Pressed \"R\" to restart game.', canvas.width / 2, canvas.height / 2 + 300);
     }
     isGameOver = true;
+  } else if(cell1.isMarked && cell2.isMarked && cell3.isMarked && cell4.isMarked && cell5.isMarked && cell6.isMarked && cell7.isMarked && cell8.isMarked && cell9.isMarked) {
+    ctx.font = '70px Arial';
+    ctx.fillStyle = 'White';
+    ctx.textAlign = 'center';
+    ctx.fillText('Draw!', canvas.width / 2, canvas.height / 2 + 230);
+    ctx.font = '50px Arial';
+    ctx.fillText('Pressed \"R\" to restart game.', canvas.width / 2, canvas.height / 2 + 300);
+    isGameOver = true;
   }
 };
 
