@@ -9,10 +9,17 @@ canvas.style.backgroundColor = config.backgroundColor;
 
 // Code.
 
+// Game Title Text.
+ctx.font = '100px Arial';
+ctx.fillStyle = 'White';
+ctx.textAlign = 'center';
+ctx.fillText('Tic Tac Toe', canvas.width / 2, 200);
+
 // Table.
 
 let isTurnX = false;
 let isProcess = false;
+let isGameOver = false;
 
 const centerpointX = canvas.width / 2 - 50;
 const centerpointY = canvas.height / 2 - 50;
@@ -73,12 +80,22 @@ function checkWinner() {
   ) {
     isProcess = true;
     if(isTurnX) {
-      alert('O is winner!');
-      window.location.reload();
+      // Set text below the table.
+      ctx.font = '70px Arial';
+      ctx.fillStyle = 'White';
+      ctx.textAlign = 'center';
+      ctx.fillText('O is winner!', canvas.width / 2, canvas.height / 2 + 230);
+      ctx.font = '50px Arial';
+      ctx.fillText('Pressed \"R\" to restart game.', canvas.width / 2, canvas.height / 2 + 300);
     } else {
-      alert('X is winner!');
-      window.location.reload();
+      ctx.font = '70px Arial';
+      ctx.fillStyle = 'White';
+      ctx.textAlign = 'center';
+      ctx.fillText('X is winner!', canvas.width / 2, canvas.height / 2 + 230);
+      ctx.font = '50px Arial';
+      ctx.fillText('Pressed \"R\" to restart game.', canvas.width / 2, canvas.height / 2 + 300);
     }
+    isGameOver = true;
   }
 };
 
@@ -86,43 +103,45 @@ window.addEventListener('click', (event: MouseEvent) => {
   mouse.x = event.clientX;
   mouse.y = event.clientY;
 
-  if(cell1.isInside(mouse.x, mouse.y)) {
-    mark(cell1);
-  }
+  if(!isGameOver) {
+    if (cell1.isInside(mouse.x, mouse.y)) {
+      mark(cell1);
+    }
 
-  if(cell2.isInside(mouse.x, mouse.y)) {
-    mark(cell2);
-  }
+    if (cell2.isInside(mouse.x, mouse.y)) {
+      mark(cell2);
+    }
 
-  if(cell3.isInside(mouse.x, mouse.y)) {
-    mark(cell3);
-  }
+    if (cell3.isInside(mouse.x, mouse.y)) {
+      mark(cell3);
+    }
 
-  if(cell4.isInside(mouse.x, mouse.y)) {
-    mark(cell4);
-  }
+    if (cell4.isInside(mouse.x, mouse.y)) {
+      mark(cell4);
+    }
 
-  if(cell5.isInside(mouse.x, mouse.y)) {
-    mark(cell5);
-  }
+    if (cell5.isInside(mouse.x, mouse.y)) {
+      mark(cell5);
+    }
 
-  if(cell6.isInside(mouse.x, mouse.y)) {
-    mark(cell6);
-  }
+    if (cell6.isInside(mouse.x, mouse.y)) {
+      mark(cell6);
+    }
 
-  if(cell7.isInside(mouse.x, mouse.y)) {
-    mark(cell7);
-  }
+    if (cell7.isInside(mouse.x, mouse.y)) {
+      mark(cell7);
+    }
 
-  if(cell8.isInside(mouse.x, mouse.y)) {
-    mark(cell8);
-  }
+    if (cell8.isInside(mouse.x, mouse.y)) {
+      mark(cell8);
+    }
 
-  if(cell9.isInside(mouse.x, mouse.y)) {
-    mark(cell9);
-  }
+    if (cell9.isInside(mouse.x, mouse.y)) {
+      mark(cell9);
+    }
 
-  checkWinner();
+    checkWinner();
+  }
 });
 
 
