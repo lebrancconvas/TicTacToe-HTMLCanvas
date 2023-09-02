@@ -1,6 +1,5 @@
 import { canvas, ctx, config } from './canvas';
 import { Cell, O, X } from './components';
-import { GameState } from './state';
 
 // Prepare the canvas.
 canvas.width = config.width;
@@ -18,7 +17,6 @@ ctx.fillText('Tic Tac Toe', canvas.width / 2, 200);
 // Table.
 
 let isTurnX = false;
-let isProcess = false;
 let isGameOver = false;
 
 const centerpointX = canvas.width / 2 - 50;
@@ -78,7 +76,6 @@ function checkWinner() {
     (cell1.symbol === cell5.symbol && cell1.symbol === cell9.symbol && cell1.symbol !== '') ||
     (cell3.symbol === cell5.symbol && cell3.symbol === cell7.symbol && cell3.symbol !== '')
   ) {
-    isProcess = true;
     if(isTurnX) {
       // Set text below the table.
       ctx.font = '70px Arial';
