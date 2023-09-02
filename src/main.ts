@@ -48,12 +48,36 @@ function mark(cell: Cell) {
       const x = new X(cell.centerPoint.x - 25, cell.centerPoint.y - 25);
       x.draw(ctx);
       isTurnX = false;
+      cell.symbol = 'x';
       cell.isMarked = true;
     } else {
       const o = new O(cell.centerPoint.x, cell.centerPoint.y);
       o.draw(ctx);
       isTurnX = true;
-      cell.isMarked= true;
+      cell.symbol = 'o';
+      cell.isMarked = true;
+    }
+  }
+};
+
+function checkWinner() {
+  if(
+    (cell1.symbol === cell2.symbol && cell1.symbol === cell3.symbol && cell1.symbol !== '') ||
+    (cell4.symbol === cell5.symbol && cell4.symbol === cell6.symbol && cell4.symbol !== '') ||
+    (cell7.symbol === cell8.symbol && cell7.symbol === cell9.symbol && cell7.symbol !== '') ||
+    (cell1.symbol === cell4.symbol && cell1.symbol === cell7.symbol && cell1.symbol !== '') ||
+    (cell2.symbol === cell5.symbol && cell2.symbol === cell8.symbol && cell2.symbol !== '') ||
+    (cell3.symbol === cell6.symbol && cell3.symbol === cell9.symbol && cell3.symbol !== '') ||
+    (cell1.symbol === cell5.symbol && cell1.symbol === cell9.symbol && cell1.symbol !== '') ||
+    (cell3.symbol === cell5.symbol && cell3.symbol === cell7.symbol && cell3.symbol !== '')
+  ) {
+    isProcess = true;
+    if(isTurnX) {
+      alert('O is winner!');
+      window.location.reload();
+    } else {
+      alert('X is winner!');
+      window.location.reload();
     }
   }
 };
@@ -97,6 +121,8 @@ window.addEventListener('click', (event: MouseEvent) => {
   if(cell9.isInside(mouse.x, mouse.y)) {
     mark(cell9);
   }
+
+  checkWinner();
 });
 
 

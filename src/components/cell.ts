@@ -5,6 +5,7 @@ export class Cell {
   height: number;
   centerPoint: { x: number, y: number }
   isMarked: boolean;
+  symbol: 'x' | 'o' | '';
 
   constructor(x: number, y: number) {
     this.x = x;
@@ -16,6 +17,7 @@ export class Cell {
       x: this.x + this.width / 2,
       y: this.y + this.height / 2
     }
+    this.symbol = '';
   }
 
   draw(ctx: CanvasRenderingContext2D) {
