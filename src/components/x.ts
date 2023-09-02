@@ -1,3 +1,5 @@
+import { Cell } from "./cell";
+
 export class X {
   x: number;
   y: number;
@@ -11,14 +13,16 @@ export class X {
     this.height = 50;
   }
 
-  draw(c: CanvasRenderingContext2D) {
-    c.beginPath();
-    c.moveTo(this.x, this.y);
-    c.lineTo(this.x + this.width, this.y + this.height);
-    c.moveTo(this.x + this.width, this.y);
-    c.lineTo(this.x, this.y + this.height);
-    c.strokeStyle = 'White';
-    c.stroke();
-    c.closePath();
+  draw(c: CanvasRenderingContext2D, cell: Cell) {
+    if(cell.isTick) {
+      c.beginPath();
+      c.moveTo(this.x, this.y);
+      c.lineTo(this.x + this.width, this.y + this.height);
+      c.moveTo(this.x + this.width, this.y);
+      c.lineTo(this.x, this.y + this.height);
+      c.strokeStyle = 'White';
+      c.stroke();
+      c.closePath();
+    }
   }
-}
+}; 

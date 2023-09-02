@@ -2,6 +2,6 @@ export enum GameState {
   Start,
   XTurn,
   Process,
-  YTurn,
+  OTurn,
   End
 };
