@@ -99,6 +99,16 @@ function checkWinner() {
   }
 };
 
+window.addEventListener('keydown', (event: KeyboardEvent) => {
+  if(isGameOver) {
+    switch(event.key) {
+      case 'r':
+        window.location.reload();
+        break;
+    }
+  }
+});
+
 window.addEventListener('click', (event: MouseEvent) => {
   mouse.x = event.clientX;
   mouse.y = event.clientY;
